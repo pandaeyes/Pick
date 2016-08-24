@@ -1,0 +1,6 @@
+build/
+bin/
+list.txt
+.settings/
+Thumbs.db
+.DS_Store

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Android.Sdk" default="dist">
+    
+   <target name="clean">
+        <echo>=====================</echo>
+        <echo> clean </echo>
+        <echo>=====================</echo>
+        <delete dir="${basedir}/build" />
+    </target>
+    
+    <target name="init" depends="clean">
+        <echo>=====================</echo>
+        <echo> init </echo>
+        <echo>=====================</echo>
+        <mkdir dir="${basedir}/build" />
+        <mkdir dir="${basedir}/build/classes" />
+    </target>
+    
+    <target name="compile" depends="init">
+        <echo>=====================</echo>
+        <echo> compile </echo>
+        <echo>=====================</echo>
+        <javac debug="on" destdir="${basedir}/build/classes" includeantruntime="on" encoding="UTF-8">
+            <src path="${basedir}/src"/>
+        </javac>
+    </target>
+    
+    <target name="dist" depends="compile">
+        <echo>=====================</echo>
+        <echo> dist </echo>
+        <echo>=====================</echo>
+        <jar destfile="${basedir}/build/pick.jar" manifest="${basedir}/MANIFEST.MF">
+            <fileset dir="${basedir}/build/classes">
+            </fileset>
+        </jar>
+    </target>
+</project>
