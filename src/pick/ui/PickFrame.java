@@ -54,6 +54,7 @@ public class PickFrame extends JFrame {
 	private String hour5 = "整5点";
 	private String hour6 = "整6点";
 	private String day1 = "整1天";
+	private String day2 = "整2天";
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
 	
 	
@@ -108,6 +109,7 @@ public class PickFrame extends JFrame {
 		typelist.addItem(hour5);
 		typelist.addItem(hour6);
 		typelist.addItem(day1);
+		typelist.addItem(day2);
 		typelist.addItem(halfhour);
 		typelist.addItem(onehour);
 		typelist.addItem(twohour);
@@ -157,6 +159,12 @@ public class PickFrame extends JFrame {
 					int m = c1.get(Calendar.MINUTE);
 					int h = c1.get(Calendar.HOUR_OF_DAY);
 					minute = c1.get(Calendar.MINUTE) + h * 60;
+				} else if (day2.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					int m = c1.get(Calendar.MINUTE);
+					int h = c1.get(Calendar.HOUR_OF_DAY);
+					minute = c1.get(Calendar.MINUTE) + h * 60 + 24 * 60;
 				}
 				setBeginTime(minute);
 			}
