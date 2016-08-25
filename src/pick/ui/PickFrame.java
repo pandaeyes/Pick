@@ -47,7 +47,13 @@ public class PickFrame extends JFrame {
 	private String twohour = "最近两小时";
 	private String sixhour = "最近六小时";
 	private String onedate = "最近一天";
-	private String houronly = "整点";
+	private String hour1 = "整1点";
+	private String hour2 = "整2点";
+	private String hour3 = "整3点";
+	private String hour4 = "整4点";
+	private String hour5 = "整5点";
+	private String hour6 = "整6点";
+	private String day1 = "整1天";
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd H:m:s");
 	
 	
@@ -95,12 +101,18 @@ public class PickFrame extends JFrame {
 		pane.add(new JLabel("结束时间:"));
 		pane.add(endTxt);
 		endTxt.setColumns(20);
+		typelist.addItem(hour1);
+		typelist.addItem(hour2);
+		typelist.addItem(hour3);
+		typelist.addItem(hour4);
+		typelist.addItem(hour5);
+		typelist.addItem(hour6);
+		typelist.addItem(day1);
 		typelist.addItem(halfhour);
 		typelist.addItem(onehour);
 		typelist.addItem(twohour);
 		typelist.addItem(sixhour);
 		typelist.addItem(onedate);
-		typelist.addItem(houronly);
 		typelist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object select = typelist.getSelectedItem();
@@ -115,10 +127,36 @@ public class PickFrame extends JFrame {
 					minute = 360;
 				} else if (onedate.equals(select)) {
 					minute = 1440;
-				} else if (houronly.equals(select)) {
+				} else if (hour1.equals(select)) {
 					Calendar c1 = Calendar.getInstance();
 					c1.setTime(new Date());
 					minute = c1.get(Calendar.MINUTE);
+				} else if (hour2.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					minute = c1.get(Calendar.MINUTE) + 60;
+				} else if (hour3.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					minute = c1.get(Calendar.MINUTE) + 120;
+				} else if (hour4.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					minute = c1.get(Calendar.MINUTE) + 180;
+				} else if (hour5.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					minute = c1.get(Calendar.MINUTE) + 240;
+				} else if (hour6.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					minute = c1.get(Calendar.MINUTE) + 300;
+				} else if (day1.equals(select)) {
+					Calendar c1 = Calendar.getInstance();
+					c1.setTime(new Date());
+					int m = c1.get(Calendar.MINUTE);
+					int h = c1.get(Calendar.HOUR_OF_DAY);
+					minute = c1.get(Calendar.MINUTE) + h * 60;
 				}
 				setBeginTime(minute);
 			}
