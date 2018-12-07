@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -101,7 +102,8 @@ public class Parser {
 		for(Picker p : map.values()) {
 			list.add(p);
 		}
-		list.sort(new Comparator() {
+		// list.sort(new Comparator() {
+		Collections.sort(list, new Comparator() {
 			public int compare(Object o1, Object o2) {
 				if (o1 == null || o2 == null || !(o1 instanceof Picker) || !(o2 instanceof Picker)) {
 					return 0;

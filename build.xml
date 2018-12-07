@@ -20,7 +20,7 @@
         <echo>=====================</echo>
         <echo> compile </echo>
         <echo>=====================</echo>
-        <javac debug="on" destdir="${basedir}/build/classes" includeantruntime="on" encoding="UTF-8">
+        <javac target="1.7" debug="on" destdir="${basedir}/build/classes" includeantruntime="on" encoding="UTF-8">
             <src path="${basedir}/src"/>
         </javac>
     </target>

@@ -30,13 +30,14 @@ public class PickManager {
 
 	public void init() {
 		try {
-			InputStream is = new BufferedInputStream(new FileInputStream("path.properties"));
-			Properties p = new Properties();
-			p.load(is);
-			srcPath = p.getProperty("path");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+//			InputStream is = new BufferedInputStream(new FileInputStream("path.properties"));
+//			Properties p = new Properties();
+//			p.load(is);
+//			srcPath = p.getProperty("path");
+			srcPath = "../仇杀名单.txt";
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
